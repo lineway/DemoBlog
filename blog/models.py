@@ -3,6 +3,8 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 # Create your models here.
 
+
+# 用户模型
 class User(AbstractUser):
     avatar = models.ImageField(upload_to='avatar/%Y/%m', default='avatar/default.png', max_length=200, blank=True, null=True,verbose_name='用户头像')
     qq = models.CharField(max_length=20, blank=True, null=True, verbose_name='QQ号码')
@@ -15,3 +17,16 @@ class User(AbstractUser):
 
     def __unicode__(self):
         return self.username
+
+
+# 标签
+class Tag(models.Model):
+    name = models.CharField(max_length=30, verbose_name='标签名称')
+
+    class Meta:
+        verbose_name = '标签'
+        verbose_name_plural = verbose_name
+        ordering = ['-id']
+
+    def __unicode__(self):
+        return self.name
