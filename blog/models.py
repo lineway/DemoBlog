@@ -44,3 +44,26 @@ class Category(models.Model):
 
     def __unicode__(self):
         return self.name
+
+
+# 文章模型
+class Article(models.Model):
+    title = models.CharField(max_length=50, verbose_name='文章标题')
+    desc = models.CharField(max_length=50, verbose_name='文章描述')
+    content = models.TextField(verbose_name='文章正文')
+    click_count = models.IntegerField(default=0, verbose_name='点击次数')
+    is_recommend = models.BooleanField(default=False, verbose_name='是否推荐')
+    data_publish = models.DateTimeField(auto_now_add=True, verbose_name='发布时间')
+    user = models.ForeignKey(User, verbose_name='用户')
+    category = models.ForeignKey(Category, blank=True, null=True, verbose_name='分类')
+    tag = models.ManyToManyField(Tag, verbose_name='标签')
+
+    class Meta:
+        verbose_name = '文章'
+        verbose_name_plural = verbose_name
+        ordering = ['-data_pulish']
+
+    def __unicode__(self):
+        return self.title
+
+    
