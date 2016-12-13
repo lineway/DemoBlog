@@ -87,8 +87,8 @@ DATABASES = {
         'NAME': 'blogdb',
         'USER': 'root',
         'PASSWORD': '',
-        'HOST': '',
-        'PORT': '',
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
     }
 }
 
