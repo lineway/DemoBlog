@@ -63,7 +63,7 @@ class Article(models.Model):
     class Meta:
         verbose_name = '文章'
         verbose_name_plural = verbose_name
-        ordering = ['-data_pulish']
+        ordering = ['-date_pulish']
 
     def __unicode__(self):
         return self.title
@@ -80,7 +80,7 @@ class Comment(models.Model):
     class Meta:
         verbose_name = '评论'
         verbose_name_plural = verbose_name
-        ordering = ['-date_publish']
+        ordering = ['-date_pulish']
 
     def __unicode__(self):
         return str(self.id)
