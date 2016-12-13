@@ -63,7 +63,7 @@ class Article(models.Model):
     class Meta:
         verbose_name = '文章'
         verbose_name_plural = verbose_name
-        ordering = ['-date_pulish']
+        ordering = ['-date_publish']
 
     def __unicode__(self):
         return self.title
@@ -72,7 +72,7 @@ class Article(models.Model):
 # 评论模型
 class Comment(models.Model):
     content = models.TextField(verbose_name='评论内容')
-    date_pulish = models.DateTimeField(auto_now_add=True, verbose_name='发布时间')
+    date_publish = models.DateTimeField(auto_now_add=True, verbose_name='发布时间')
     user = models.ForeignKey(User, blank=True, null=True, verbose_name='用户')
     article = models.ForeignKey(Article, blank=True, null=True, verbose_name='文章')
     pid = models.ForeignKey('self', blank=True, null=True, verbose_name='父级评论')
@@ -80,7 +80,7 @@ class Comment(models.Model):
     class Meta:
         verbose_name = '评论'
         verbose_name_plural = verbose_name
-        ordering = ['-date_pulish']
+        ordering = ['-date_publish']
 
     def __unicode__(self):
         return str(self.id)
