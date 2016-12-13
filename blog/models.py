@@ -5,6 +5,8 @@ from django.contrib.auth.models import AbstractUser
 
 
 # 用户模型
+# 第一种：采用继承的方式扩展用户信息(采用)
+# 第二种：关联的方式去扩展信息
 class User(AbstractUser):
     avatar = models.ImageField(upload_to='avatar/%Y/%m', default='avatar/default.png', max_length=200, blank=True, null=True,verbose_name='用户头像')
     qq = models.CharField(max_length=20, blank=True, null=True, verbose_name='QQ号码')
@@ -78,7 +80,7 @@ class Comment(models.Model):
     class Meta:
         verbose_name = '评论'
         verbose_name_plural = verbose_name
-        ordering = ['-data_publish']
+        ordering = ['-date_publish']
 
     def __unicode__(self):
         return str(self.id)
