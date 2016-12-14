@@ -5,10 +5,23 @@ from blog.models import *
 # Register your models here.
 
 class UserAdmin(admin.ModelAdmin):
-    fields = ('title', 'desc', 'content')
+    fieldsets = (
+        (None, {
+            'fields': ('username', 'avatar', )
+        }),
+        ('高级设置', {
+            'classes': ('collapse',),
+            'fields': ('first_name', 'last_name', 'qq', 'mobile',)
+        }),
+    )
+    list_display = ['username', 'qq', 'avatar']
+    list_filter = ['username', 'qq']
+
 
 class ArticleAdmin(admin.ModelAdmin):
     # fields = ('title', 'desc', 'content')
+    list_display = ('title', 'desc')
+    list_filter = ('title', 'click_count')
     fieldsets = (
         (None, {
             'fields': ('title', 'desc', 'content', )
