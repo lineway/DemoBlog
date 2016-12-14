@@ -15,7 +15,7 @@ class ArticleAdmin(admin.ModelAdmin):
         }),
         ('高级设置', {
             'classes': ('collapse',),
-            'fields': ('click_count', 'is_recommend', )
+            'fields': ('click_count', 'is_recommend', 'date_publish', )
         }),
     )
 
