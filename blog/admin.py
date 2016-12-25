@@ -28,9 +28,16 @@ class ArticleAdmin(admin.ModelAdmin):
         }),
         ('高级设置', {
             'classes': ('collapse',),
-            'fields': ('click_count', 'is_recommend', 'date_publish', )
+            'fields': ('click_count', 'is_recommend',)
         }),
     )
+
+    class Media:
+         js = (
+             '/static/js/kindeditor-4.1.10/kindeditor-min.js',
+             '/static/js/kindeditor-4.1.10/lang/zh-CN.js',
+             '/static/js/kindeditor-4.1.10/config.js',
+         )
 
 
 admin.site.register(User, UserAdmin)

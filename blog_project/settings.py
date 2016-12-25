@@ -115,6 +115,10 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
+# 上传媒体
+MEDIA_URL = '/uploads/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
+
 # 网站的基本信息配置
 SITE_NAME = 'BEARHOME'
 SITE_DESC = 'this is bear home'
