@@ -12,8 +12,8 @@ def global_setting(request):
             }
 
 def index(request):
-    try:
-        open('ss.txt', 'r')
-    except Exception as e:
-        pass
+    # try:
+    #     open('ss.txt', 'r')
+    # except Exception as e:
+    #     pass
     return render(request, 'index.html', locals())
